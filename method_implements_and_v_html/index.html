@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js3</title>
+    <!-- bootstrap 4.6 CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <!-- method implement -->
+            <h2 class="text-center">{{ firstText() }}</h2>
+            <h2 class="text-center">{{ secondText() }}</h2>
+            <!-- v-html use for ignore html tag from frontend -->
+            <div v-html="htmlTag()"></div>
+        </div>   
+    </div>
+    <!-- vue CDN -->
+    <script src="js/vue.global.js"></script>
+    <!-- include app.js file -->
+    <script src="app.js"></script>
+</body>
+</html>
