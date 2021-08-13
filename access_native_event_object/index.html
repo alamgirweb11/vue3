@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js3</title>
+    <!-- bootstrap 4.6 CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <br>
+            <!-- click event binding with v-on -->
+            <button class="btn btn-primary mr-2" @click="increment()">Increment</button>
+            <button class="btn btn-danger" v-on:click="decrement()">Decrement</button> 
+            <br>
+            <h2>{{ count }}</h2>
+            <br>
+            <h4>Fill the input fields</h4>
+            <input type="text" class="form-control" width="50"  name="" id="firstName" v-on:input="inputData">
+            <h6>Your Input Is {{ name }}</h6>
+            <br>
+            <!-- event handle $event -->
+            <h4>Enter Your Name Only</h4>
+            <input type="text" class="form-control" width="50"  name="" id="" v-on:input="getUserName($event,' Hossain')">
+            <h6>Your name is {{ username }}</h6>
+        </div>   
+    </div>
+    <!-- vue CDN -->
+    <script src="js/vue.global.js"></script>
+    <!-- include app.js file -->
+    <script src="app.js"></script>
+</body>
+</html>
