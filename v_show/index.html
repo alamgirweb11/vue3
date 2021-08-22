@@ -20,15 +20,19 @@
                 </div> 
             </form>
          
-            <!-- v-show statement hide element from front page -->
+            <!-- if else statement remove element from front page -->
 
          <div class="show-hobby mt-3">
-             <div class="alert alert-warning" v-show="hobbies.length === 0">Hobby not available.</div>
+             <div class="alert alert-warning" v-if="hobbies.length === 0">Hobby not available.</div>
 
-             <ul class="list-group" v-show="hobbies.length>0">
+             <ul class="list-group" v-else-if="hobbies.length>0">
                   <li class="list-group-item">First Hobby</li>
                   <li class="list-group-item">Second Hobby</li>
              </ul>
+
+             <div class="alert alert-danger" v-else>
+                    No data available!
+             </div>
          </div>
     </div>
     <!-- vue CDN -->
