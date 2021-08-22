@@ -20,35 +20,16 @@
                 </div> 
             </form>
          
-            <!-- v-for statement for list rendering -->
+            <!-- key method provide unique list of item -->
 
          <div class="show-hobby mt-3">
              <div class="alert alert-warning" v-if="hobbies.length === 0">Hobby not available.</div>
 
              <ul class="list-group" v-else-if="hobbies.length>0">
-                  <li class="list-group-item" v-for="(hobby, index) in hobbies">{{ hobby }} - {{ index+1 }}</li>
+                  <li class="list-group-item" v-for="(hobby, index) in hobbies" @click.prevent="removeList(index)">{{ hobby }} - {{ index+1 }}
+                    <input type="text" @click.stop>
+                  </li>
              </ul>
-
-             <table class="table">
-                 <thead>
-                     <th>SL</th>
-                     <!-- <th>ID</th> -->
-                     <th>Name</th>
-                     <th>Mobile</th>
-                     <th>Address</th>
-                 </thead>
-                 <tbody v-for="(user, index) in users" :key="user.id">
-                     <td>{{ index+1 }}</td>
-                     <!-- <td>{{ user.id }}</td> -->
-                     <td>{{ user.name }}</td>
-                     <td>{{ user.mobile }}</td>
-                     <td>{{ user.address }}</td>
-                 </tbody>
-             </table>
-
-             <!-- <ul class="list-group mt-2">
-                 <li class="list-group-item" v-for="user in users" :key="item.id"></li>
-             </ul> -->
          </div>
     </div>
     <!-- vue CDN -->
