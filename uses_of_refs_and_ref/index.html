@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js3</title>
+    <!-- bootstrap 4.6 CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <!-- event handle $event -->
+            <h4>Enter Your Name Only</h4>
+           <div class="row form-group">
+            <div class="col-md-6">
+                <input type="text" class="form-control" ref="username">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" type="button" @click.prevent="submitData()">Submit</button>
+            </div>
+           </div>
+            <h6>Your name is {{ getName }}</h6>
+         
+        </div>   
+    </div>
+    <!-- vue CDN -->
+    <script src="js/vue.global.js"></script>
+    <!-- include app.js file -->
+    <script src="app.js"></script>
+</body>
+</html>
