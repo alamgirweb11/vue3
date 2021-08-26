@@ -1,6 +1,11 @@
 const app = Vue.createApp({
     data() {
         return {
+          //    confirm ticket
+          confirmed: false,
+          name: "",
+          mobile: "",
+          //    seat status json
           seatStates:{
               sold:{
                    text:'Sold',
@@ -19,6 +24,7 @@ const app = Vue.createApp({
                    color: '#00ff00'
               },
           },
+          // seats json
           seats: [
                {
                  name: "A1",
@@ -140,23 +146,103 @@ const app = Vue.createApp({
                  type: "available",
                  price: 300
                }
-             ]
+             ],
+          //    coupon part
+             appliedCoupon: null,
+             couponCode: "",
+             coupons:[
+                  {
+                    code: '100TAKAOFF',
+                    discount: 100
+                  },
+                  {
+                    code: '200TAKAOFF',
+                    discount: 200
+                  }
+             ],
+        
         }
+        
     },
 
     computed:{
-          
+     //     return selected seats details
+         selectedSeats(){
+              let selected_seats = this.seats.filter((item) => item.type === 'selected');
+              return selected_seats;
+         },
+     //   total price of  selected seats
+     totalPrice(){
+          let total_price = 0;   
+          this.selectedSeats.forEach((seat) => {
+                total_price += seat.price;
+          });
+          if(this.appliedCoupon !==null){
+                 total_price = total_price - this.appliedCoupon.discount;
+          }
+          return total_price;
+     }
     },
 
     methods: {
+     //     seat click method 
      handleClick(i){
            let clickedSeat = this.seats[i];
-           if(clickedSeat.type === 'booked' || clickedSeat.type ==='sold'){
-                 alert('You cannot select this seat.')
+            //  booked and sold seat validation
+          if(clickedSeat.type === 'booked' || clickedSeat.type === 'sold'){
+               alert('This seat is not available');
+               return;
+          }
+          
+           if(clickedSeat.type == 'available' && this.selectedSeats.length > 2 ){
+                 alert('You cannot select more than 3 seats.')
                  return;
            }
            clickedSeat.type = clickedSeat.type === 'selected' ? 'available' : 'selected';
-     }
+
+          //  console.log(clickedSeat)
+     },
+     // ticket confirm validation
+     confirm(){
+           if(!this.name || !this.mobile){
+                 alert("Please enter name and mobile");
+                 return;
+           }
+
+           this.confirmed = true;
+     },
+
+     // after confirmed reset all data
+     resetData(){
+             this.confirmed = false;
+             this.name = "";
+             this.mobile = "";
+             this.appliedCoupon = null;
+
+             this.seats.forEach((seat) => {
+                   if(seat.type === 'selected'){
+                         seat.type = 'sold';
+                   }
+             });
+      }
     },
+
+    watch: {
+     //     coupon validation
+     couponCode(newCoupon){
+            if(newCoupon.length === 10){
+                  let searchedCoupons = this.coupons.filter(
+                       (item) => item.code === newCoupon
+                  );
+
+                  if(searchedCoupons.length === 1){
+                       this.appliedCoupon = searchedCoupons[0];
+                       this.couponCode = "";
+                  }else{
+                       alert('Coupon not valid!');
+                  }
+            }
+     }
+    }
 });
 app.mount("#app")
