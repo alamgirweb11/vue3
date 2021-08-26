@@ -13,18 +13,53 @@
 </head>
 <body>
         <div id="app">
+            <!-- app title  -->
             <h2 class="app-title">Ticket Booking App</h2>
+            <!-- /. app title  -->
+            <!-- main app section -->
             <div class="ticket-app">
-                <div class="ticket-app__top">
-                    <div class="seat-states">
-                      <div class="seat-state" v-for="(seatState, key) in seatStates">
-                          <div class="seat-state__color" :style="{backgroundColor: seatState.color}"></div>
-                          <div class="seat-state__text">{{ seatState.text }}</div>
-                      </div>
+                    <!-- app top section -->
+                    <div class="ticket-app__top">
+                        <div class="seat-states">
+                          <div class="seat-state" v-for="(seatState, key) in seatStates">
+                              <div class="seat-state__color" :style="{backgroundColor: seatState.color}"></div>
+                              <div class="seat-state__text">{{ seatState.text }}</div>
+                          </div>
+                        </div>
                     </div>
-                </div>
-                <div class="ticket-app__bottom"></div>
+                    <!-- /.  app top section -->
+                    <!-- app bottom section -->
+                    <div class="ticket-app__bottom">
+                        <div class="ticket-app__left">
+                            <div class="bus">
+                               <!-- steering and door section -->
+                               <div class="bus__top">
+                                <div class="bus__door">Door</div>
+                                <div class="bus__driver">Driver</div>
+                               </div>
+                               <!-- /. steering and door section -->
+                               <!-- seats section -->
+                               <div class="seats">
+                                <div class="seat" 
+                                :class="{
+                                     'seat--sold': seat.type === 'sold', 
+                                     'seat--booked': seat.type === 'booked',  
+                                     'seat--selected': seat.type === 'selected'  
+                                }"
+                                v-for="(seat, i) in seats" :key="seat.name"
+                                @click.prevent="handleClick(i)">
+                                {{ seat.name }}
+                            </div>
+                            </div>
+                               <!-- /. seats section -->
+                            </div>
+                        </div>
+           
+                    </div>
+                    <!-- /. app bottom section -->
+              
             </div>
+             <!-- /. main app section -->
     </div>
     <!-- vue CDN -->
     <script src="assets/js/vue.global.js"></script>
