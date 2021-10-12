@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Vue CLI Project setup</h2>
+    <h2 class="text-success">Vue CLI Project setup</h2>
   </div>
 </template>
 
