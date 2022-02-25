@@ -9,7 +9,16 @@
 <script>
 export default {
   name: 'UserComponent',
-  props: ["name", "age"],
+  props: {
+      age: {
+        type: Number,
+        require: true,
+      },
+     name: {
+        type: String,
+        require: true,
+     }
+  },
   emits: ['age-update'],
   methods: {
        ageUpdate(){
