@@ -2,7 +2,7 @@
   <div class="container">
    <h3 class="base-title">Props</h3>
    <greetings :age="age"></greetings>
-  <user :name="name" :age="age" @age-update="updateAge"></user>
+  <user :name="name" :age="age" @age-update="updateAge" :changeAgeFunction="changeAgeFunction"></user>
  </div>
 </template>
 
@@ -25,7 +25,10 @@ export default {
   methods: {
       updateAge(i){
            this.age += i
-      }
+      },
+  changeAgeFunction(i){
+        this.age += i
+  }
   },
 }
 </script>

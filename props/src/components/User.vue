@@ -1,6 +1,7 @@
 <template>
   <div class="user-wrapper">
     <button class="age-increment-btn" @click="ageUpdate">Update Age</button>
+    <button class="age-increment-btn" @click="changeAgeFunction(3)">Update Age CF</button>
      <h4>Your name is  {{  name }} and your are {{ age }} years old.</h4>
      <h5>Age double {{ ageDouble }}</h5>
   </div>
@@ -17,7 +18,8 @@ export default {
      name: {
         type: String,
         require: true,
-     }
+     },
+    changeAgeFunction: Function,
   },
   emits: ['age-update'],
   methods: {
@@ -38,6 +40,7 @@ export default {
      @mixin age-btn(){ 
              background: #0d7bd4;
              padding: 10px;
+             margin: 8px;
              border: none;
              border-radius: 10px;
              color: #fff;
