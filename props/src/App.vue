@@ -1,11 +1,13 @@
 <template>
   <div class="container">
    <h3 class="base-title">Props</h3>
-  <user :name="name" :age="age"></user>
+   <greetings :age="age"></greetings>
+  <user :name="name" :age="age" @age-update="updateAge"></user>
  </div>
 </template>
 
 <script>
+import Greetings from './components/Greetings.vue'
 import User from './components/User.vue'
 
 export default {
@@ -17,8 +19,14 @@ export default {
     }
   },
   components: {
-    User
-  }
+    User,
+    Greetings,
+  },
+  methods: {
+      updateAge(i){
+           this.age += i
+      }
+  },
 }
 </script>
 
