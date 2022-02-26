@@ -1,17 +1,15 @@
 <template>
-<div class="card-wrapper">
     <div class="card">
      <div class="card-header">
        <h4>{{ cardHeader }}</h4>
      </div>
      <div class="card-body">
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam?</p>
+      <slot><p>Default body text</p></slot>
      </div>
      <div class="card-footer">
        <h4>{{ cardFooter }}</h4>
      </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -32,14 +30,8 @@ export default {
                     margin-top: $margin-top;
                     margin-bottom: $margin-bottom;
           }
-
-          .card-wrapper{
-                 display: flex;
-                 justify-content: space-between;
-          }
-
           .card{
-             max-width: 420px;
+             width: 320px;
              border-radius: 8px;
              border: 2px solid #330203;
              margin: 10px 0;
