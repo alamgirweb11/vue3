@@ -6,8 +6,8 @@
      <div class="card-body">
       <slot name="card-body"><p>Default body text</p></slot>
      </div>
-     <div class="card-footer">
-        <slot name="card-footer"><h4>Card Footer</h4></slot>
+     <div class="card-footer" v-if="$slots.card_footer">
+        <slot name="card_footer"><h4>Card Footer</h4></slot>
      </div>
   </div>
 </template>
@@ -15,7 +15,10 @@
 <script>
 export default {
   name: 'CardComponent',
-  props: ['cardHeader', 'cardFooter']
+  props: ['cardHeader', 'cardFooter'],
+  mounted() {
+      console.log(this.$slots.card_footer)
+  },
 }
 </script>
 
