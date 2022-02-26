@@ -1,13 +1,13 @@
 <template>
     <div class="card">
      <div class="card-header">
-       <h4>{{ cardHeader }}</h4>
+       <slot name="card-header"><h4>Card Header</h4></slot>
      </div>
      <div class="card-body">
-      <slot><p>Default body text</p></slot>
+      <slot name="card-body"><p>Default body text</p></slot>
      </div>
      <div class="card-footer">
-       <h4>{{ cardFooter }}</h4>
+        <slot name="card-footer"><h4>Card Footer</h4></slot>
      </div>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
           }
           .card{
              width: 320px;
+             min-height: 120px;
              border-radius: 8px;
              border: 2px solid #330203;
              margin: 10px 0;

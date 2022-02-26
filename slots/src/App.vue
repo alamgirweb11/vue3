@@ -1,11 +1,39 @@
 <template>
  <div class="container">
    <div class="card-wrapper">
-    <card cardHeader="Card Header1" cardFooter="Card Footer1">
-       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus commodi dolor, alias iusto dicta illum vitae illo nesciunt magnam aliquid. Illum ipsa laboriosam nisi. Amet, libero. Nobis excepturi quisquam labore ullam fugiat laborum ratione sapiente corporis non unde molestias fugit obcaecati omnis, voluptas explicabo eos praesentium numquam quasi error delectus.</p>
+    <card> 
+       <template v-slot:card-header>
+           <h4>Card Header-01</h4>
+       </template>
+       <template v-slot:card-body>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur omnis voluptates ad mollitia illo odit neque corrupti. Non culpa illum a, dignissimos sunt incidunt numquam natus minima nulla exercitationem distinctio aspernatur quisquam laboriosam eaque enim ab obcaecati esse debitis! Dicta ea esse ab, sit incidunt vel optio iure quia saepe?</p>
+       </template>
+       <template v-slot:card-footer>
+          <h4>Card Footer-01</h4>
+       </template>
     </card>
-    <card cardHeader="Card Header2" cardFooter="Card Footer2"></card>
-    <card cardHeader="Card Header3" cardFooter="Card Footer3"></card>
+    <card> 
+       <template v-slot:card-header>
+           <h4>Card Header-02</h4>
+       </template>
+       <template v-slot:card-body>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur omnis voluptates ad mollitia illo odit neque corrupti. Non culpa illum a, dignissimos sunt incidunt numquam natus minima nulla exercitationem distinctio aspernatur quisquam laboriosam eaque enim ab obcaecati esse debitis! Dicta ea esse ab, sit incidunt vel optio iure quia saepe?</p>
+       </template>
+       <template v-slot:card-footer>
+          <h4>Card Footer-02</h4>
+       </template>
+    </card>
+    <card> 
+       <template v-slot:card-header>
+           <h4>Card Header-03</h4>
+       </template>
+       <template v-slot:card-body>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur omnis voluptates ad mollitia illo odit neque corrupti. Non culpa illum a, dignissimos sunt incidunt numquam natus minima nulla exercitationem distinctio aspernatur quisquam laboriosam eaque enim ab obcaecati esse debitis! Dicta ea esse ab, sit incidunt vel optio iure quia saepe?</p>
+       </template>
+       <template v-slot:card-footer>
+          <h4>Card Footer-03</h4>
+       </template>
+    </card>
    </div>
  </div>
 </template>
