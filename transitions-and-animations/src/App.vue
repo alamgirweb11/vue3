@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <button @click="flag = !flag" class="toggle-btn">Toggle</button>
+        <!-- <button @click="flag = !flag" class="toggle-btn">Toggle</button> -->
          <!-- <transition name="fade" mode="out-in">
             <h2 v-if="flag" class="heading-title" key="base">Hello World!</h2>
             <h2 v-else class="heading-title" key="sub">Hello Visitors!</h2>
@@ -10,7 +10,7 @@
             <h2 v-if="flag" class="css-animation-block">Hello World!</h2>
          </transition> -->
            <!-- javascript animations -->
-         <transition 
+         <!-- <transition 
          @before-enter = "beforeEnter" 
          @enter = "enter"
          @after-enter = "afterEnter"
@@ -21,7 +21,20 @@
          name="fade"
         >
             <h2 v-if="flag" class="js-animation-block">Hello World!</h2>
-         </transition>
+         </transition> -->
+    <!-- list styling -->
+       <button @click="addNewNumber()" class="add-new-number-btn">Add New Number</button>
+              <ul>
+                 <transition-group name="fade">
+                <li
+                 v-for="(number, index) in numbers"
+                  :key="number"
+                  @click="removeItem(index)"
+                  >
+                  {{ number }}
+                  </li>
+                  </transition-group>
+              </ul>
     </div>
 </template>
 
@@ -33,12 +46,23 @@ export default {
   data() {
     return {
           flag: true,
+          numbers: [1,2,3,4,5,6,7,8,9,10]
     }
   },
   components: {
 
   },
   methods: {
+    // add new random number
+    addNewNumber(){
+        const num = Math.floor(Math.random() * 100 + 1);
+        const index = Math.floor(Math.random() * this.numbers.length);
+        this.numbers.splice(index, 0, num);
+
+    },
+    removeItem(index){
+         this.numbers.splice(index, 1);
+    },
         beforeEnter(el){
             console.log('before-enter event fired',  el)
         },
@@ -87,9 +111,30 @@ export default {
          padding: 10px 25px;
          border: none;
          border-radius: 5px;
+         margin: 8px;
+  }
+  .add-new-number-btn{
+         background: #1976e0;
+         color: #fff;
+         padding: 10px 25px;
+         border: none;
+         border-radius: 5px;
+         margin: 8px;
   }
 
+/* list style */
+ ul li{
+      font-size: 26px;
+      cursor: pointer;
+ }
+
   /* transitions classes */
+  .fade-leave-active{
+      position: absolute;
+  }
+  .fade-move{
+     transition: all 1s linear;
+  }
   .fade-enter-from{
      opacity: 0;
   }
