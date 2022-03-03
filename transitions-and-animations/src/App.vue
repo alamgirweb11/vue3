@@ -25,7 +25,11 @@
     <!-- list styling -->
        <button @click="addNewNumber()" class="add-new-number-btn">Add New Number</button>
               <ul>
-                 <transition-group name="fade">
+                 <transition-group 
+                 name="fade"
+                 enter-active-class="animate__animated animate__flipInX"
+                 leave-active-class="animate__animated animate__flipOutX"
+                 >
                 <li
                  v-for="(number, index) in numbers"
                   :key="number"
@@ -126,6 +130,15 @@ export default {
  ul li{
       font-size: 26px;
       cursor: pointer;
+ }
+
+ /* animate css styling */
+.animate__flipOutX{
+    position: absolute;
+ }
+
+  .animate__animated{
+   animation-duration: 1.5s;
  }
 
   /* transitions classes */
