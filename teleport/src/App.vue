@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import CommentForm from '/CommentForm.vue'
+import CommentForm from './components/CommentForm.vue'
 
 export default {
   name: 'App',

@@ -1,6 +1,6 @@
 <template lang="">
    <div class="comments-form">
-      <textarea v-model="comments" placeholder="Write your comments"></textarea>
+      <textarea v-model="comments" class="input-textarea" placeholder="Write your comments"></textarea>
       <button>Submit</button>
    </div>
 </template>
@@ -9,6 +9,13 @@ export default {
     
 }
 </script>
-<style lang="">
-    
+<style scop>
+     .comments-form{
+          width: 320px;
+          margin: 10px auto;
+     }
+     .input-textarea{
+          width: 100%;
+          
+     }
 </style>
